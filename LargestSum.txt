@@ -1,0 +1,36 @@
+// Java program to print largest contiguous array sum 
+// Complexity = O(n)
+
+import java.io.*;
+
+class Source{
+	//Method to get the largest contiguous array sum
+	static int maxSubArraySum(int a[], int size)
+	{
+	int maxi = a[0];
+	int curr = a[0];
+
+	for (int i = 1; i < size; i++)
+	{
+		curr = Math.max(a[i], curr+a[i]);
+		maxi = Math.max(maxi, curr);
+	}
+	return maxi;
+	}
+
+	//Main method
+	public static void main(String[] args)
+	{
+	 int n;
+        Scanner s = new Scanner(System.in);
+        n = s.nextInt();
+        int arr[] = new int[n];
+        for(int i = 0; i < n; i++)
+            arr[i] = s.nextInt();
+	int max_sum = maxSubArraySum(a, n);
+	System.out.println("Maximum contiguous sum is "
+					+ max_sum);
+	}
+}
+
+
